@@ -8,13 +8,73 @@ A lightweight, client-side schedule planner that lets users:
 
 There is no login, no signup, and no backend. Everything runs in the browser.
 
-## Project files
+## What this app does
 
-This app is designed to be hosted as a static website. The core files are:
+This tool helps you:
 
-- `index.html`
-- `styles.css`
-- `app.js`
+1. take your schedule from PeopleSoft or another timetable source
+2. convert it into a calendar file
+3. share your exported `.ics` file with friends
+4. compare schedules and find free time that matches everyone
+
+## How to get your schedule from PeopleSoft
+
+1. Log in to PeopleSoft.
+2. Open your class schedule or academic timetable.
+3. Open the weekly timetable view.
+4. Use the browser option to save the page as HTML, or copy the timetable content.
+5. Paste it into the app, or upload the saved HTML file.
+
+Typical timetable content looks like this:
+
+```text
+Days: Sunday Times: 11:00AM to 12:00PM
+```
+
+The app is designed to parse schedule blocks like that and turn them into calendar events.
+
+## How to export your `.ics` file
+
+1. Paste your HTML schedule into the app, or upload the saved file.
+2. Click the Convert to ICS button.
+3. Review the generated calendar output.
+4. Click Download .ics to save the file.
+5. Open the downloaded file in your calendar app if needed.
+
+Your friends can then upload the `.ics` file to the app and compare free time.
+
+## How to compare with friends
+
+1. Each person exports their own schedule as `.ics`.
+2. Open the app and choose multiple `.ics` files in the Compare with friends section.
+3. Click Find common free time.
+4. The app will show matching free slots across the selected schedules.
+5. Download the shared availability `.ics` file if needed.
+
+## How to share it with people
+
+You can share the app by sending:
+
+- the live Netlify URL
+- the GitHub repo link
+- a short note explaining that everyone just needs to upload their own `.ics` file
+
+This keeps the process simple and private because everything runs in the browser.
+
+## Demo video
+
+Add your recorded walkthrough here:
+
+```md
+[Watch the demo video](https://your-video-link-here.com)
+```
+
+If you are using a Loom, YouTube, or Google Drive video, paste the public link here so people can see:
+
+- how to get the schedule from PeopleSoft
+- how to export the `.ics` file
+- how to compare with friends
+- how to use the app step by step
 
 ## Run locally
 
@@ -30,21 +90,6 @@ Then open:
 http://localhost:8000
 ```
 
-## Deploy to GitHub Pages
-
-1. Push this project to a GitHub repository.
-2. Open the repository in GitHub.
-3. Go to Settings > Pages.
-4. Under Source, choose "Deploy from a branch".
-5. Select the main branch and the root folder `/`.
-6. Save the settings.
-
-Your site will be published at:
-
-```text
-https://<your-username>.github.io/<your-repository-name>/
-```
-
 ## Deploy to Netlify
 
 1. Import the repository into Netlify.
@@ -53,6 +98,14 @@ https://<your-username>.github.io/<your-repository-name>/
 4. Deploy the site.
 
 Netlify will serve the app as a static site without needing any server code.
+
+## Project files
+
+This app is designed to be hosted as a static website. The core files are:
+
+- `index.html`
+- `styles.css`
+- `app.js`
 
 ## Notes
 

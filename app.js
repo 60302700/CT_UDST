@@ -1,78 +1,138 @@
 const DAY_ORDER = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
 
-const DEMO_HTML = `
-<div class="ps_grid">
-  <table>
-    <thead>
-      <tr>
-        <th>Time</th>
-        <th class="MONDAY">Monday</th>
-        <th class="TUESDAY">Tuesday</th>
-        <th class="WEDNESDAY">Wednesday</th>
-        <th class="THURSDAY">Thursday</th>
-        <th class="FRIDAY">Friday</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>8:00AM</td>
-        <td title="Lecture 8:00 AM-9:30 AM"> </td>
-        <td title="Team study 8:30 AM-10:00 AM"> </td>
-        <td></td>
-        <td></td>
-        <td title="Focus block 8:00 AM-10:00 AM"> </td>
-      </tr>
-      <tr>
-        <td>9:00AM</td>
-        <td title="Lecture 8:00 AM-9:30 AM"> </td>
-        <td title="Team study 8:30 AM-10:00 AM"> </td>
-        <td title="Design sprint 9:00 AM-11:00 AM"> </td>
-        <td></td>
-        <td title="Focus block 8:00 AM-10:00 AM"> </td>
-      </tr>
-      <tr>
-        <td>10:00AM</td>
-        <td></td>
-        <td></td>
-        <td title="Design sprint 9:00 AM-11:00 AM"> </td>
-        <td title="Trainer 10:00 AM-11:30 AM"> </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>11:00AM</td>
-        <td title="Lunch catch-up 11:30 AM-12:30 PM"> </td>
-        <td></td>
-        <td></td>
-        <td title="Trainer 10:00 AM-11:30 AM"> </td>
-        <td title="Call 11:00 AM-12:00 PM"> </td>
-      </tr>
-      <tr>
-        <td>12:00PM</td>
-        <td title="Lunch catch-up 11:30 AM-12:30 PM"> </td>
-        <td title="Deep work 12:00 PM-2:00 PM"> </td>
-        <td title="Project check-in 12:00 PM-1:00 PM"> </td>
-        <td></td>
-        <td title="Call 11:00 AM-12:00 PM"> </td>
-      </tr>
-      <tr>
-        <td>1:00PM</td>
-        <td></td>
-        <td title="Deep work 12:00 PM-2:00 PM"> </td>
-        <td title="Project check-in 12:00 PM-1:00 PM"> </td>
-        <td title="Meeting 1:00 PM-2:00 PM"> </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2:00PM</td>
-        <td title="Gym 2:00 PM-3:00 PM"> </td>
-        <td></td>
-        <td title="Workout 2:00 PM-3:30 PM"> </td>
-        <td title="Meeting 1:00 PM-2:00 PM"> </td>
-        <td title="Quick review 2:00 PM-3:00 PM"> </td>
-      </tr>
-    </tbody>
-  </table>
-</div>`;
+const DEMO_HTML = `COMP 4101 Practicum
+Status
+Units
+Grading Basis
+Grade
+Academic Program
+Requirement Designation
+Enrolled
+3.00
+60% and Letter Grade
+ 
+B.Sc. - IT
+ 
+Class
+Start/End Dates
+Days and Times
+Room
+Lecture - Class 3157 -Section 21
+25/08/2026 - 03/12/2026
+ 
+Days: Tuesday
+Times: 4:00PM to 5:00PM
+01.1.06
+ 
+ 
+Laboratory - Class 3158 -Section 22
+25/08/2026 - 03/12/2026
+ 
+Days: Tuesday
+Times: 8:00PM to 9:00PM
+OFFS
+ 
+ 
+DACS 3201 Network Security
+Status
+Units
+Grading Basis
+Grade
+Academic Program
+Requirement Designation
+Enrolled
+3.00
+60% and Letter Grade
+ 
+B.Sc. - IT
+ 
+Class
+Start/End Dates
+Days and Times
+Room
+Lecture - Class 3183 -Section 1
+25/08/2026 - 03/12/2026
+ 
+Days: Tuesday
+Times: 12:00PM to 2:00PM
+10.1.18
+ 
+ 
+Laboratory - Class 3184 -Section 2
+25/08/2026 - 03/12/2026
+ 
+Days: Wednesday
+Times: 10:00AM to 1:00PM
+10.1.18
+ 
+ 
+DACS 4101 Security Engineering Principle
+Status
+Units
+Grading Basis
+Grade
+Academic Program
+Requirement Designation
+Enrolled
+3.00
+60% and Letter Grade
+ 
+B.Sc. - IT
+ 
+Class
+Start/End Dates
+Days and Times
+Room
+Lecture - Class 3197 -Section 7
+25/08/2026 - 03/12/2026
+ 
+Days: Wednesday
+Times: 4:00PM to 6:00PM
+10.2.25
+ 
+ 
+Laboratory - Class 3198 -Section 8
+25/08/2026 - 03/12/2026
+ 
+Days: Monday
+Times: 5:00PM to 8:00PM
+10.2.25
+ 
+ 
+DACS 4103 Scripting for Cyber Security
+Status
+Units
+Grading Basis
+Grade
+Academic Program
+Requirement Designation
+Enrolled
+3.00
+60% and Letter Grade
+ 
+B.Sc. - IT
+ 
+Class
+Start/End Dates
+Days and Times
+Room
+Lecture - Class 3209 -Section 7
+25/08/2026 - 03/12/2026
+ 
+Days: Monday
+Times: 8:00AM to 10:00AM
+10.1.18
+ 
+ 
+Laboratory - Class 3210 -Section 8
+25/08/2026 - 03/12/2026
+ 
+Days: Sunday
+Times: 8:00AM to 11:00AM
+10.1.18
+ 
+ 
+`;
 
 function safeText(value) {
   return String(value || "")
