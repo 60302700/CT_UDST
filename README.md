@@ -63,18 +63,18 @@ This keeps the process simple and private because everything runs in the browser
 
 ## Demo video
 
-Add your recorded walkthrough here:
+This walkthrough shows how to get the timetable from PeopleSoft, export the `.ics` file, and compare schedules with friends.
+
+<video controls width="100%" playsinline>
+  <source src="./guide.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+You can also open the file directly here:
 
 ```md
-[Watch the demo video](https://github.com/60302700/CT_UDST/raw/refs/heads/main/guide.mp4)
+[Watch the demo video](./guide.mp4)
 ```
-
-If you are using a Loom, YouTube, or Google Drive video, paste the public link here so people can see:
-
-- how to get the schedule from PeopleSoft
-- how to export the `.ics` file
-- how to compare with friends
-- how to use the app step by step
 
 ## Run locally
 
