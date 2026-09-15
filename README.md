@@ -1,3 +1,5 @@
+
+
 # Common Time
 
 A lightweight, client-side schedule planner that lets users:
@@ -65,16 +67,11 @@ This keeps the process simple and private because everything runs in the browser
 
 This walkthrough shows how to get the timetable from PeopleSoft, export the `.ics` file, and compare schedules with friends.
 
-<video controls width="100%" playsinline>
-  <source src="./guide.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/8c3231d6-84d6-46d5-8539-7464699b4c9c
+
 
 You can also open the file directly here:
 
-```md
-[Watch the demo video](./guide.mp4)
-```
 
 ## Run locally
 
