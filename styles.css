@@ -85,6 +85,14 @@ textarea {
   margin-bottom: 20px;
 }
 
+.header-demo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 .eyebrow {
   margin: 0 0 6px;
   color: var(--muted);
