@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Common Time App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Client-side planner</p>
+          <h1>Common Time</h1>
+        </div>
+      </header>
+
+      <main id="main-content" class="panel-grid" role="main">
+        <section class="panel">
+          <h2>1. Upload your HTML schedule</h2>
+          <div class="stack">
+            <input id="htmlFileInput" type="file" accept=".html,.htm,.txt" />
+            <button id="sampleHtmlButton" type="button" class="secondary-btn">
+              Use demo schedule
+            </button>
+            <textarea
+              id="htmlInput"
+              rows="10"
+              placeholder="Paste HTML schedule here or upload a file..."
+            ></textarea>
+            <button id="convertButton" type="button" class="primary-btn">
+              Convert to ICS
+            </button>
+            <p id="conversionStatus" class="status-text" aria-live="polite"></p>
+            <textarea
+              id="generatedIcs"
+              rows="12"
+              readonly
+              placeholder="ICS output will appear here..."
+            ></textarea>
+            <div class="button-row">
+              <button
+                id="downloadIcsButton"
+                type="button"
+                class="secondary-btn"
+              >
+                Download .ics
+              </button>
+              <button id="copyIcsButton" type="button" class="secondary-btn">
+                Copy
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wide-panel">
+          <h2>3. Compare with friends</h2>
+          <div class="stack">
+            <input id="friendIcsInput" type="file" accept=".ics" multiple />
+            <div id="selectedIcsList" class="selection-list hidden"></div>
+            <button id="compareButton" type="button" class="primary-btn">
+              Find common free time
+            </button>
+            <p id="compareStatus" class="status-text" aria-live="polite"></p>
+            <div id="commonTimeResults" class="results-box"></div>
+            <div
+              id="commonFreeTimeGrid"
+              class="timetable-grid free-grid"
+              aria-live="polite"
+            ></div>
+            <textarea
+              id="commonIcsOutput"
+              rows="12"
+              readonly
+              placeholder="Shared availability .ics preview..."
+            ></textarea>
+            <button
+              id="downloadCommonButton"
+              type="button"
+              class="secondary-btn"
+            >
+              Download common time .ics
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div
+      id="a11yLive"
+      class="sr-only"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <div
+      id="a11yAssertive"
+      class="sr-only"
+      aria-live="assertive"
+      aria-atomic="true"
+    ></div>
+    <div
+      id="a11yDetails"
+      class="sr-only"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+venv/*
+share/*
+*.pdf
+*.ics
+__pycache__
+lib/*
+bin/*
