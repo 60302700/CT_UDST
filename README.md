@@ -66,7 +66,7 @@ This keeps the process simple and private because everything runs in the browser
 Add your recorded walkthrough here:
 
 ```md
-[Watch the demo video](https://your-video-link-here.com)
+[Watch the demo video](https://github.com/60302700/CT_UDST/raw/refs/heads/main/guide.mp4)
 ```
 
 If you are using a Loom, YouTube, or Google Drive video, paste the public link here so people can see:
