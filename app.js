@@ -943,13 +943,6 @@ function wireEvents() {
     convertHtmlToIcs(DEMO_HTML);
   });
 
-  document
-    .getElementById("htmlFileInput")
-    .addEventListener("change", async (event) => {
-      const [file] = event.target.files;
-      await loadHtmlFile(file);
-    });
-
   document.getElementById("convertButton").addEventListener("click", () => {
     convertHtmlToIcs(document.getElementById("htmlInput").value);
   });
