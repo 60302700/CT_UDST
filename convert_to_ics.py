@@ -131,7 +131,14 @@ def parse_html_schedule(html_content):
         events = parse_plain_text_schedule(html_content)
         return events
 
-    header_cells = table.select("thead tr th") or table.select("tr th")
+    # Prefer the first header row in the thead; fallback to the first table row with THs
+    thead = table.find("thead")
+    if thead:
+        header_row = thead.find("tr")
+        header_cells = header_row.find_all("th") if header_row else []
+    else:
+        first_tr_with_th = table.find("tr", lambda tag: tag.find("th") is not None)
+        header_cells = first_tr_with_th.find_all("th") if first_tr_with_th else []
     day_index_map = {}
 
     for index, cell in enumerate(header_cells):
@@ -159,11 +166,16 @@ def parse_html_schedule(html_content):
 
     for row in table.select("tbody tr"):
         cells = row.find_all(["td", "th"], recursive=False)
-        for index, cell in enumerate(cells):
+        col_index = 0
+        for cell in cells:
+            # account for time-column markers
             if cell.get("class") and "psc_time" in cell.get("class", []):
+                colspan = int(cell.get("colspan", 1))
+                col_index += colspan
                 continue
 
-            day_name = get_day_from_cell(cell, day_index_map.get(index))
+            colspan = int(cell.get("colspan", 1))
+            day_name = get_day_from_cell(cell, day_index_map.get(col_index))
             if not day_name:
                 continue
 
@@ -187,7 +199,10 @@ def parse_html_schedule(html_content):
             if not time_range:
                 continue
 
-            event_key = f"{day_name}|{title}|{time_range['start']}|{time_range['end']}"
+            # Normalize start/end to minute resolution for robust deduplication
+            start_min = int(round(time_range["start"] * 60))
+            end_min = int(round(time_range["end"] * 60))
+            event_key = f"{day_name}|{normalize_text(title)}|{start_min}|{end_min}"
             if event_key in seen:
                 continue
             seen.add(event_key)
@@ -228,7 +243,8 @@ def to_ics_datetime(date_obj, decimal_hour):
         hour += 1
         minute = 0
     dt = datetime(date_obj.year, date_obj.month, date_obj.day, hour, minute)
-    return dt.strftime("%Y%m%dT%H%M%SZ")
+    # Use a floating local time format (no trailing Z) to avoid implying UTC
+    return dt.strftime("%Y%m%dT%H%M%S")
 
 
 def build_ics_calendar(events):
@@ -252,6 +268,8 @@ def build_ics_calendar(events):
                 f"SUMMARY:{summary}",
                 f"DTSTART:{to_ics_datetime(event_date, event['start'])}",
                 f"DTEND:{to_ics_datetime(event_date, event['end'])}",
+                # Make timetable events repeat every single day
+                "RRULE:FREQ=DAILY;INTERVAL=1",
                 "END:VEVENT",
             ]
         )
